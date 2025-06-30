@@ -1,0 +1,12 @@
+ body {
+            background: linear-gradient(to right, #74ebd5, #9face6);
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .register-box {
+            max-width: 500px;
+            margin: 7% auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
