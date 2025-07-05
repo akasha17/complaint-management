@@ -250,14 +250,22 @@ def staff_dashboard(request):
 @login_required
 def staff_assign_technician(request, pk):
     complaint = get_object_or_404(Complaint, pk=pk)
+    success = False
+
     if request.method == 'POST':
         form = AssignForm(request.POST, instance=complaint)
         if form.is_valid():
             form.save()
-            return redirect('complaint_list')
+            success = True  # Trigger popup in template
+
     else:
         form = AssignForm(instance=complaint)
-    return render(request, 'complaints/assign.html', {'form': form, 'complaint': complaint})
+
+    return render(request, 'complaints/assign.html', {
+        'form': form,
+        'complaint': complaint,
+        'success': success
+    })
 
 # -------------------------------
 # Technician Views
