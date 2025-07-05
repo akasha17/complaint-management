@@ -84,13 +84,13 @@
                         <p><strong>Status:</strong> 
                             <span class="badge bg-info">{{ c.status|title }}</span>
                         </p>
-                        <p><strong>Staff:</strong> 
+<!--                         <p><strong>Staff:</strong> 
                             {% if c.assigned_staff and c.assigned_staff.user %}
                                 {{ c.assigned_staff.user.get_full_name }}
                             {% else %}
                                 <span class="text-danger">Not Assigned</span>
                             {% endif %}
-                        </p>
+                        </p> -->
                         <p><strong>Technician:</strong> {{ c.assigned_technician.name|default:"Not Assigned" }}</p>
                         <a href="{% url 'staff_assign_technician' c.id %}" class="btn btn-sm btn-outline-primary mt-2">Assign Technician</a>
                         <a href="{% url 'delete_complaint' c.id %}" class="btn btn-sm btn-outline-danger mt-2" onclick="return confirm('Delete this complaint?')">Delete</a>
