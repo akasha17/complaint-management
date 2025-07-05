@@ -128,6 +128,7 @@ def admin_dashboard(request):
     assigned = complaints.filter(assigned_technician__isnull=False).count()
     not_assigned = complaints.filter(assigned_technician__isnull=True).count()
     completed = complaints.filter(status='completed').count()
+    unsolved = complaints.exclude(status='completed').count()
 
     return render(request, 'admin/admin_dashboard.html', {
         'complaints': complaints,
@@ -138,6 +139,7 @@ def admin_dashboard(request):
             'assigned': assigned,
             'not_assigned': not_assigned,
             'completed': completed,
+            'unsolved': unsolved,
         }
     })
 
