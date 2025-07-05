@@ -254,7 +254,7 @@ def staff_assign_technician(request, pk):
         form = AssignForm(request.POST, instance=complaint)
         if form.is_valid():
             form.save()
-            return redirect('staff_dashboard')
+            return redirect('complaint_list')
     else:
         form = AssignForm(instance=complaint)
     return render(request, 'complaints/assign.html', {'form': form, 'complaint': complaint})
