@@ -32,7 +32,6 @@
 <div class="container mt-4">
     <h2 class="mb-4 text-primary">Welcome, Admin</h2>
 
-    <!-- Flash Messages -->
     {% if messages %}
         {% for message in messages %}
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -44,27 +43,47 @@
 
     <!-- Stats Cards -->
     <div class="row mb-4">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card text-bg-primary shadow-sm">
                 <div class="card-body">
-                    <h5 class="card-title">Total Complaints</h5>
-                    <h3>{{ complaints|length }}</h3>
+                    <h6>Total Complaints</h6>
+                    <h3>{{ chart_data.total }}</h3>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card text-bg-success shadow-sm">
                 <div class="card-body">
-                    <h5 class="card-title">Total Staff</h5>
+                    <h6>Total Staff</h6>
                     <h3>{{ staff|length }}</h3>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card text-bg-warning shadow-sm">
                 <div class="card-body">
-                    <h5 class="card-title">Technicians</h5>
+                    <h6>Technicians</h6>
                     <h3>{{ technicians|length }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-bg-info shadow-sm">
+                <div class="card-body">
+                    <h6>Solved</h6>
+                    <h3>{{ chart_data.completed }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Unsolved -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card text-bg-danger shadow-sm">
+                <div class="card-body">
+                    <h6>Unsolved</h6>
+                    <h3>{{ chart_data.unsolved }}</h3>
                 </div>
             </div>
         </div>
@@ -84,7 +103,7 @@
                         <p><strong>Status:</strong> 
                             <span class="badge bg-info">{{ c.status|title }}</span>
                         </p>
-<!--                         <p><strong>Staff:</strong> 
+                        <!-- <p><strong>Staff:</strong> 
                             {% if c.assigned_staff and c.assigned_staff.user %}
                                 {{ c.assigned_staff.user.get_full_name }}
                             {% else %}
