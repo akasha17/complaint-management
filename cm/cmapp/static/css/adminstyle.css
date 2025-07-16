@@ -1,271 +1,61 @@
 body {
-    font-family: 'Roboto', sans-serif; /* Use a modern font */
-    background-color: #f0f2f5; /* Light background for the overall page, slightly darker than f8f9fa */
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-.wrapper {
-    display: flex;
-    width: 100%;
+.navbar-brand {
+    font-size: 1.4rem;
+    font-weight: 600;
 }
 
-/* Sidebar Styling */
-.sidebar {
-    width: 260px; /* Adjust width as needed */
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    background: #344767; /* Dark background for sidebar */
+.navbar .nav-link {
+    color: #ccc;
+    margin-left: 15px;
+    transition: all 0.3s ease;
+}
+.navbar .nav-link:hover {
     color: #fff;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-    transition: all 0.3s;
-    z-index: 1000;
+    padding-left: 5px;
 }
 
-.sidebar-header {
-    text-align: center;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fff; /* Ensure text color is white */
-}
-
-.sidebar ul.components {
-    padding: 0;
-    list-style: none;
-}
-
-.sidebar ul.components li {
-    margin-bottom: 10px;
-}
-
-.sidebar ul.components li a {
-    padding: 10px 15px;
-    display: block;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-}
-
-.sidebar ul.components li a i {
-    margin-right: 10px;
-}
-
-.sidebar ul.components li a:hover {
-    background: rgba(255,255,255,0.1);
-}
-
-.sidebar ul.components li.active a {
-    background: linear-gradient(195deg, #42424a, #191919); /* Gradient from image */
-    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(66,66,74,.4);
-}
-
-.auth-pages-separator {
-    margin-top: 30px;
-    margin-bottom: 10px;
-    padding-left: 15px;
-    color: rgba(255,255,255,0.6);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-/* Page Content */
-#content {
-    width: calc(100% - 260px); /* Adjust based on sidebar width */
-    margin-left: 260px; /* Push content to the right of sidebar */
-    padding: 20px;
-    min-height: 100vh;
-    transition: all 0.3s;
-    background-color: #f0f2f5; /* Lighter background for main content area, same as body for consistency */
-}
-
-/* Main Navbar (top bar) */
-.main-navbar {
-    background: #fff !important; /* White background for the top nav */
-    border-radius: 0.75rem;
-    margin-bottom: 20px;
-    padding: 10px 20px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Lighter shadow */
-}
-
-.main-navbar .search-bar .form-control {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-color: #dee2e6; /* Lighter border */
-}
-
-.main-navbar .search-bar .btn {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    background-color: #e9ecef; /* Light grey background for search button */
-    border-color: #dee2e6;
-    color: #495057;
-}
-.main-navbar .btn-link { /* Adjust button links in top nav */
-    color: #495057 !important;
-}
-
-
-/* Stats Cards */
-.stats-cards .card {
-    border-radius: 0.75rem;
-    position: relative;
-    overflow: hidden;
-    color: #fff;
-    text-align: right;
-    height: 120px; /* Adjust height for consistent look */
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(0,0,0,0.2); /* Stronger shadow for cards */
-}
-
-.stats-cards .card-body {
-    padding: 1.25rem;
-    width: 100%; /* Ensure body takes full width */
-    display: flex;
-    flex-direction: row; /* Arrange items in a row */
-    align-items: center;
-    justify-content: space-between; /* Space out icon and text */
-}
-
-.stats-cards .card-body .col-8 {
-    text-align: left; /* Align text left within its column */
-}
-
-.stats-cards .card-title {
-    font-size: 0.8rem;
-    font-weight: bold;
-    opacity: 0.8;
-    margin-bottom: 0.25rem;
-}
-
-.stats-cards .card-text {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    line-height: 1; /* Adjust line height */
-}
-
-/* Card Backgrounds and Shadows - Matching the image's style */
-.stats-cards .card-stats-primary { /* Total Complaints - Material Purple/Pinkish */
-    background: linear-gradient(195deg, #EC407A, #D81B60);
-    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(236,64,122,.4);
-}
-
-.stats-cards .card-stats-success { /* Solved Complaints - Material Green */
-    background: linear-gradient(195deg, #66BB6A, #43A047);
-    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(102,187,106,.4);
-}
-
-.stats-cards .card-stats-danger { /* Unsolved Complaints - Material Red */
-    background: linear-gradient(195deg, #EF5350, #E53935);
-    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(239,83,80,.4);
-}
-
-.stats-cards .card-stats-info { /* Total Staff - Material Blue */
-    background: linear-gradient(195deg, #26C6DA, #00ACC1);
-    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(38,198,218,.4);
-}
-
-.stats-cards .card-stats-warning { /* Technicians - Material Orange */
-    background: linear-gradient(195deg, #FFA726, #FB8C00);
-    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(255,167,38,.4);
-}
-
-
-.stats-cards .card .fa-2x {
-    color: rgba(255,255,255,0.6);
-    font-size: 3rem; /* Larger icon */
-    position: relative; /* Make it relative to align within flexbox */
-    margin-left: auto; /* Push icon to the right if needed, but flexbox handles it */
-}
-
-
-/* Chart Cards (These styles are now largely unused as charts are removed) */
-.chart-card {
-    background-color: #fff;
-    border-radius: 0.75rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Lighter shadow for chart cards */
-    padding: 1.5rem;
-    height: 350px; /* Fixed height for charts */
-    display: flex;
-    flex-direction: column;
-}
-
-.chart-card .card-title {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #344767; /* Darker title color */
-}
-
-.chart-card .card-subtitle {
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    color: #6c757d; /* Muted subtitle color */
-}
-
-.chart-card canvas {
-    flex-grow: 1; /* Allow canvas to take available space */
-}
-
-/* General Card Styling for Complaints, Staff, Technicians */
+/* Section Titles */
 .section-title {
-    margin-top: 30px;
+    margin-top: 40px;
     margin-bottom: 20px;
-    font-weight: bold;
-    color: #344767;
-    font-size: 1.5rem;
+    padding-bottom: 5px;
+    font-weight: 600;
+    border-bottom: 2px solid #dee2e6;
 }
 
-.card { /* General card style for the list items */
-    border-radius: 0.75rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    border: none; /* Remove default bootstrap border */
+/* Cards */
+.card {
+    border-radius: 12px;
+    transition: transform 0.2s;
+}
+.card:hover {
+    transform: translateY(-2px);
+}
+.card-body p {
+    margin-bottom: 0.4rem;
 }
 
-.card-body {
-    padding: 1.5rem;
+/* Buttons */
+.btn-sm {
+    border-radius: 20px;
+    padding: 4px 12px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .sidebar {
-        margin-left: -260px; /* Hide sidebar by default on smaller screens */
-    }
-    .sidebar.active {
-        margin-left: 0;
-    }
-    #content {
-        width: 100%;
-        margin-left: 0;
-    }
-    #content.active {
-        margin-left: 260px;
-    }
-    .main-navbar .search-bar {
-        display: none; /* Hide search bar on small screens */
-    }
-    .main-navbar .d-flex.w-100 {
-        flex-direction: column;
-        align-items: flex-start !important;
-    }
-    .main-navbar .d-flex.align-items-center {
-        margin-top: 10px;
-    }
-    .main-navbar .btn-link {
-        padding: 5px;
-    }
-    .stats-cards .col-xl-3 {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
+/* Alerts */
+.alert {
+    border-radius: 10px;
 }
+ .hero-img {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translatey(0px); }
+            50% { transform: translatey(-20px); }
+            100% { transform: translatey(0px); }
+        }
+
